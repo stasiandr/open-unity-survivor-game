@@ -1,5 +1,4 @@
 using Global;
-using Interfaces;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;

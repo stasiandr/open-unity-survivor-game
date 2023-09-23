@@ -1,5 +1,4 @@
 using Global;
-using Interfaces;
 using Nrjwolf.Tools.AttachAttributes;
 using UniRx;
 using UniRx.Triggers;

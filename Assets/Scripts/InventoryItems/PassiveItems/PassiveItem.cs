@@ -1,7 +1,6 @@
 using System;
 using Global;
 using Global.ItemsInterfaces;
-using Interfaces;
 using NaughtyAttributes;
 using UnityEngine;
 

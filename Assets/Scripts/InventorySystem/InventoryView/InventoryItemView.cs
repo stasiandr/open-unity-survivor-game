@@ -1,5 +1,4 @@
 using Global;
-using Interfaces;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

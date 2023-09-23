@@ -1,5 +1,4 @@
 using Global;
-using Interfaces;
 using InventorySystem;
 using TNRD;
 using UnityEngine;

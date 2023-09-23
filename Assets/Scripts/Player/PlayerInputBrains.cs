@@ -1,6 +1,5 @@
 using Characters;
 using Global;
-using Interfaces;
 using Nrjwolf.Tools.AttachAttributes;
 using UniRx;
 using UnityEngine;

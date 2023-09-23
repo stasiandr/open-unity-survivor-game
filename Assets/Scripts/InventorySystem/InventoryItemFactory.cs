@@ -1,7 +1,6 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using Global;
-using Interfaces;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;

@@ -1,6 +1,5 @@
 using System.Linq;
 using Global;
-using Interfaces;
 using UniRx;
 
 namespace InventorySystem

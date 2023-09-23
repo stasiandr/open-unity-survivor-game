@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using Global;
-using Interfaces;
 using Player;
 using UniRx;
 using UnityEngine;
