@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923a43ad386b4e41930fb86a00536827, type: 3}
+  m_Name: Wand
+  m_EditorClassIdentifier: 
+  data:
+  - <ProjectileSpeed>k__BackingField: 3
+    <AbilityDamage>k__BackingField: 5
+    <Interval>k__BackingField: 1
+    <ProjectilesCount>k__BackingField: 1
+    <LevelUpDescription>k__BackingField: Fires projectile to random enemy
+  - <ProjectileSpeed>k__BackingField: 6
+    <AbilityDamage>k__BackingField: 5
+    <Interval>k__BackingField: 1
+    <ProjectilesCount>k__BackingField: 1
+    <LevelUpDescription>k__BackingField: +3 projectile speed
+  - <ProjectileSpeed>k__BackingField: 6
+    <AbilityDamage>k__BackingField: 15
+    <Interval>k__BackingField: 1
+    <ProjectilesCount>k__BackingField: 1
+    <LevelUpDescription>k__BackingField: +10 damage
+  - <ProjectileSpeed>k__BackingField: 6
+    <AbilityDamage>k__BackingField: 15
+    <Interval>k__BackingField: 0.75
+    <ProjectilesCount>k__BackingField: 1
+    <LevelUpDescription>k__BackingField: -25% interval
+  - <ProjectileSpeed>k__BackingField: 6
+    <AbilityDamage>k__BackingField: 15
+    <Interval>k__BackingField: 0.75
+    <ProjectilesCount>k__BackingField: 2
+    <LevelUpDescription>k__BackingField: +1 projectile per cast
+  prefab: {fileID: 408808887992073920, guid: f23d796c05c764a6ea9f6b68b9b76c80, type: 3}
+  <ItemIcon>k__BackingField: {fileID: 21300000, guid: 37eb5b29e28854814a8ff4b1d6e4b024,
+    type: 3}
+  <ItemName>k__BackingField: Wand
+  <Tags>k__BackingField:
+  - Weapon

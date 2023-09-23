@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8f17db130b49f5b48426af9f7bf08e, type: 3}
+  m_Name: MoveSpeedBuff
+  m_EditorClassIdentifier: 
+  data:
+  - <Bonus>k__BackingField: 5
+    <LevelUpDescription>k__BackingField: +5% move speed
+  - <Bonus>k__BackingField: 15
+    <LevelUpDescription>k__BackingField: +10% move speed
+  - <Bonus>k__BackingField: 30
+    <LevelUpDescription>k__BackingField: +15% move speed
+  <ItemIcon>k__BackingField: {fileID: 21300000, guid: 05500b83fd95d44d1b966fe31bd8d425,
+    type: 3}
+  <ItemName>k__BackingField: Move Speed
+  <Tags>k__BackingField:
+  - Passive

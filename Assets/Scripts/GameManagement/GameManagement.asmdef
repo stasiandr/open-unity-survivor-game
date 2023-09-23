@@ -1,0 +1,27 @@
+{
+    "name": "GameManagement",
+    "rootNamespace": "",
+    "references": [
+        "GUID:4aa2ab3207a0549a2aa15b18c2af91ad",
+        "GUID:23eed6c2401dca1419d1ebd180e58c5a",
+        "GUID:6e9ac449416664ce49a7b801eeaf3bf2",
+        "GUID:57a4f393ec0684e5da4c8d3daa85ff01",
+        "",
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:4b4794e38edc74eb8986ad993a5ad5c8",
+        "GUID:618d04b527c09458b92f9718fced4054",
+        "GUID:17df0cda475ed4f83a7a5661d6922330"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

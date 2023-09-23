@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa0026c0784845ef8897df76bc76e86a, type: 3}
+  m_Name: ScorchedEarth
+  m_EditorClassIdentifier: 
+  data:
+  - <AbilityDamage>k__BackingField: 5
+    <Interval>k__BackingField: 1
+    <Radius>k__BackingField: 2
+    <LevelUpDescription>k__BackingField: Creates aura around Player that damages
+      all enemies inside radius
+  - <AbilityDamage>k__BackingField: 10
+    <Interval>k__BackingField: 1
+    <Radius>k__BackingField: 2
+    <LevelUpDescription>k__BackingField: +5 damage
+  - <AbilityDamage>k__BackingField: 10
+    <Interval>k__BackingField: 0.75
+    <Radius>k__BackingField: 2
+    <LevelUpDescription>k__BackingField: -25% to inverval
+  - <AbilityDamage>k__BackingField: 10
+    <Interval>k__BackingField: 0.75
+    <Radius>k__BackingField: 3
+    <LevelUpDescription>k__BackingField: +50% radius
+  - <AbilityDamage>k__BackingField: 10
+    <Interval>k__BackingField: 0.75
+    <Radius>k__BackingField: 4.5
+    <LevelUpDescription>k__BackingField: +50% radius
+  prefab: {fileID: 6799030241608631663, guid: 2cbd38918b5c04df8825f3084e82d704, type: 3}
+  <ItemIcon>k__BackingField: {fileID: 21300000, guid: 73b70498bc53c4d149602f503b91defa,
+    type: 3}
+  <ItemName>k__BackingField: Scorched Earth
+  <Tags>k__BackingField:
+  - Weapon
