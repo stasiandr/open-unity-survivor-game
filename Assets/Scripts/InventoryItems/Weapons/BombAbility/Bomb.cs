@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using Global;
 using Interfaces;
 using Nrjwolf.Tools.AttachAttributes;
 using UnityEngine;
@@ -9,7 +10,7 @@ namespace InventoryItems.Weapons.BombAbility
 {
     public class Bomb : MonoBehaviour
     {
-        [SerializeField, GetComponent] private Rigidbody rb;
+        [SerializeField] [GetComponent] private Rigidbody rb;
 
         public GameObject onExplosion;
 
@@ -27,11 +28,12 @@ namespace InventoryItems.Weapons.BombAbility
                              .Select(col => col.attachedRigidbody.GetComponent<IDamagable>()))
                     damagable.DealDamage(damage);
 
-                Instantiate(onExplosion, transform.position, Quaternion.identity).transform.localScale = Vector3.one * radius;
-                
+                Instantiate(onExplosion, transform.position, Quaternion.identity).transform.localScale =
+                    Vector3.one * radius;
+
                 Destroy(gameObject);
             });
-            
+
             return this;
         }
     }

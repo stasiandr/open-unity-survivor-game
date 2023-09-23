@@ -1,4 +1,5 @@
 using Characters;
+using Global;
 using Interfaces;
 using Nrjwolf.Tools.AttachAttributes;
 using UniRx;
@@ -11,15 +12,14 @@ namespace Enemies
     [RequireComponent(typeof(RockCharacterController))]
     public class EnemyBrains : MonoBehaviour
     {
-        [SerializeField, GetComponent] private RockCharacterController controller;
+        [SerializeField] [GetComponent] private RockCharacterController controller;
+        [SerializeField] private int damage = 1;
 
-        [SerializeField] private int damage;
-        
         [Inject]
         public void Construct(IEnemyTarget target)
         {
             target.WorldPosition
-                .Subscribe(pos => controller.Direction.Value = (pos - transform.position).normalized)
+                .Subscribe(pos => controller.SetDirection((pos - transform.position).normalized))
                 .AddTo(this);
 
             gameObject.OnCollisionStayAsObservable()

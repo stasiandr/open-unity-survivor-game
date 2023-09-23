@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Global;
 using Interfaces;
 using Player;
 using UniRx;
@@ -18,7 +19,7 @@ namespace InventoryItems.Weapons.ScorchedEarth
         public void Construct(PlayerModel playerModel)
         {
             SubscribeToPlayer(playerModel);
-            
+
             tempView.transform.localScale = Vector3.one * RuntimeData.Radius;
 
             Observable.Interval(TimeSpan.FromSeconds(RuntimeData.Interval))
@@ -32,10 +33,9 @@ namespace InventoryItems.Weapons.ScorchedEarth
                                  .Where(col => col.CompareTag("Enemy"))
                                  .Select(col => col.attachedRigidbody.GetComponent<IDamagable>()))
                         damagable.DealDamage(RuntimeData.AbilityDamage);
-                    
+
                     tempView.Emit(1);
                 }).AddTo(this);
         }
-
     }
 }

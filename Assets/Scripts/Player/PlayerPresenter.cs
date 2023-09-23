@@ -1,3 +1,4 @@
+using Global;
 using Interfaces;
 using UnityEngine;
 using VContainer;
@@ -13,8 +14,15 @@ namespace Player
         {
             _playerModel = playerModel;
         }
-        
-        public void DealDamage(int damage) => _playerModel.DealDamage(damage);
-        public void AddExperience(int experience) => _playerModel.AddExperience(experience);
+
+        public void DealDamage(int damage)
+        {
+            _playerModel.DealDamage(damage);
+        }
+
+        public void AddExperience(int experience)
+        {
+            _playerModel.AddExperience(experience);
+        }
     }
 }

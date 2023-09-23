@@ -1,3 +1,4 @@
+using Global;
 using Interfaces;
 using InventorySystem;
 using TNRD;
@@ -19,6 +20,9 @@ namespace GameManagement
             _inventory = inventory;
         }
 
-        private void Start() => _inventory.Add(_factory.Create(descriptor.Value, 0));
+        private void Start()
+        {
+            _inventory.Add(_factory.Create(descriptor.Value, 0));
+        }
     }
 }

@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using GameManagement.DI;
 using GameManagement.SelectionCanvas;
-using Interfaces;
-using Interfaces.Extensions;
+using Global;
 using InventorySystem;
 using UnityEngine;
 
@@ -19,22 +17,22 @@ namespace GameManagement
         public IEnumerable<AbilityButtonModel> GenerateAvailableItems(int count)
         {
             var result = new List<AbilityButtonModel>();
-            
+
             foreach (var item in _allInGameItems.Weapons)
             {
                 var newLevel = _inventory.TryGetByPrototype(item, out var inventoryItem) ? inventoryItem.Level + 1 : 0;
-                
+
                 if (newLevel != 0 && !inventoryItem.Descriptor.CanCreateItemWithLevel(newLevel)) continue;
-                
+
                 result.Add(BuildButtonModel(item, newLevel));
             }
-            
+
             foreach (var item in _allInGameItems.Buffs)
             {
                 var newLevel = _inventory.TryGetByPrototype(item, out var inventoryItem) ? inventoryItem.Level + 1 : 0;
-                
+
                 if (newLevel != 0 && !inventoryItem.Descriptor.CanCreateItemWithLevel(newLevel)) continue;
-                
+
                 result.Add(BuildButtonModel(item, newLevel));
             }
 
@@ -71,6 +69,5 @@ namespace GameManagement
             _allInGameItems = allInGameItems;
             _inventory = inventory;
         }
-
     }
 }

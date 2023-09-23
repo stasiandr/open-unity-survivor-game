@@ -8,10 +8,19 @@ namespace InventoryItems.PassiveItems
     {
         private readonly Action<PlayerModel> _action;
 
-        public GenericBuff(Action<PlayerModel> action) => _action = action;
-        [Inject]
-        public void Construct(PlayerModel playerModel) => _action.Invoke(playerModel);
+        public GenericBuff(Action<PlayerModel> action)
+        {
+            _action = action;
+        }
 
-        public void Dispose() { }
+        [Inject]
+        public void Construct(PlayerModel playerModel)
+        {
+            _action.Invoke(playerModel);
+        }
+
+        public void Dispose()
+        {
+        }
     }
 }

@@ -1,6 +1,5 @@
 using System;
-using Interfaces.AbilityInterfaces;
-using Interfaces.PlayerStatsInterfaces;
+using Global.ItemsInterfaces;
 using UnityEngine;
 
 namespace InventoryItems.Weapons.Wand
@@ -9,26 +8,23 @@ namespace InventoryItems.Weapons.Wand
     public class WandDescriptor : WeaponDescriptor<WandDescriptor.WandData, WandBehaviour>
     {
         [Serializable]
-        public struct WandData : ILevelUpDescription, IProjectileSpeed, IAbilityDamage, IAbilityInterval, IProjectilesCount, ICloneable
+        public struct WandData : ILevelUpDescription, IProjectileSpeed, IAbilityDamage, IAbilityInterval,
+            IProjectilesCount, ICloneable
         {
-            [field: SerializeField]
-            public float ProjectileSpeed { get; set; }
-            
-            [field: SerializeField]
-            public int AbilityDamage { get; set; }
-            
-            [field: SerializeField]
-            public float Interval { get; set; }
-            
-            [field: SerializeField]
-            public int ProjectilesCount { get; set; }
-            
-            
-            [field: SerializeField] 
-            public string LevelUpDescription { get; private set; }
+            [field: SerializeField] public float ProjectileSpeed { get; set; }
 
-            public object Clone() =>
-                new WandData
+            [field: SerializeField] public int AbilityDamage { get; set; }
+
+            [field: SerializeField] public float Interval { get; set; }
+
+            [field: SerializeField] public int ProjectilesCount { get; set; }
+
+
+            [field: SerializeField] public string LevelUpDescription { get; private set; }
+
+            public object Clone()
+            {
+                return new WandData
                 {
                     ProjectileSpeed = ProjectileSpeed,
                     AbilityDamage = AbilityDamage,
@@ -36,6 +32,7 @@ namespace InventoryItems.Weapons.Wand
                     ProjectilesCount = ProjectilesCount,
                     LevelUpDescription = LevelUpDescription
                 };
+            }
         }
     }
 }

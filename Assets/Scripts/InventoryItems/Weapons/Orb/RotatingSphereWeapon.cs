@@ -1,3 +1,4 @@
+using Global;
 using Interfaces;
 using UniRx;
 using UniRx.Triggers;
@@ -9,14 +10,14 @@ namespace InventoryItems.Weapons.Orb
     {
         public int damage;
         public float angularSpeed;
-        
+
         /// <summary>
         /// Offset measured in degrees.
         /// </summary>
         public float offset;
 
         private Vector3 _localPositionOnStart;
-        
+
         private void Start()
         {
             gameObject.OnTriggerEnterAsObservable()
@@ -31,7 +32,9 @@ namespace InventoryItems.Weapons.Orb
         // Yes, UniRx bug 
         private void LateUpdate()
         {
-            transform.position = transform.parent.position + Quaternion.Euler(0, Time.time * 360 * angularSpeed + offset, 0) * _localPositionOnStart;
+            transform.position = transform.parent.position +
+                                 Quaternion.Euler(0, Time.time * 360 * angularSpeed + offset, 0) *
+                                 _localPositionOnStart;
         }
     }
 }

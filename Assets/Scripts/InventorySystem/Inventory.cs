@@ -1,4 +1,5 @@
 using System.Linq;
+using Global;
 using Interfaces;
 using UniRx;
 
@@ -21,7 +22,7 @@ namespace InventorySystem
             _inventoryItems.Remove(item);
             item.OnRemove();
         }
-        
+
         public void RemoveByPrototype(IInventoryItemDescriptorBase item)
         {
             if (TryGetByPrototype(item, out var inventoryItem))
@@ -33,7 +34,5 @@ namespace InventorySystem
             inventoryItem = _inventoryItems.FirstOrDefault(i => i.Descriptor == item);
             return inventoryItem != null;
         }
-
-        
     }
 }

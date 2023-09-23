@@ -9,7 +9,7 @@ namespace InventoryItems.Weapons.Orb
 {
     public class OrbBehaviour : WeaponBehaviour<OrbDescriptor.OrbData>
     {
-        [SerializeField, GetComponentInChildren]
+        [SerializeField] [GetComponentInChildren]
         private RotatingSphereWeapon rotatingSphereWeapon;
 
         private readonly List<RotatingSphereWeapon> _weapons = new();
@@ -39,9 +39,9 @@ namespace InventoryItems.Weapons.Orb
                 weapon.damage = RuntimeData.AbilityDamage;
                 weapon.angularSpeed = RuntimeData.ProjectileSpeed;
                 weapon.offset = (float)i / RuntimeData.ProjectilesCount * 360;
-                
+
                 weapon.gameObject.SetActive(true);
-                
+
                 _weapons.Add(weapon);
             }
         }

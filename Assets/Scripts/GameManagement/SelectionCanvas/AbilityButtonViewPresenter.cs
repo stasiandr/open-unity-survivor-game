@@ -11,7 +11,7 @@ namespace GameManagement.SelectionCanvas
         [SerializeField] private Image abilityImage;
         [SerializeField] private TMP_Text abilityName;
         [SerializeField] private TMP_Text abilityDescription;
-        
+
         public AbilityButtonViewPresenter Construct(AbilitySelectionCanvas abilitySelectionCanvas,
             AbilityButtonModel model)
         {

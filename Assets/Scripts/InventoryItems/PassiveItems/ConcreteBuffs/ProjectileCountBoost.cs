@@ -7,7 +7,8 @@ namespace InventoryItems.PassiveItems.ConcreteBuffs
     public class ProjectileCountBoost : PassiveItem<PlayerProperty<int>>
     {
         public override IDisposable CreateItem(int level)
-            => new GenericBuff(model => model.ExtraProjectiles.Value = data[level].Bonus);
+        {
+            return new GenericBuff(model => model.ExtraProjectiles.Value = data[level].Bonus);
+        }
     }
-
 }

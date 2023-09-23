@@ -1,6 +1,7 @@
 using System;
+using Global;
+using Global.ItemsInterfaces;
 using Interfaces;
-using Interfaces.AbilityInterfaces;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -14,19 +15,20 @@ namespace InventoryItems.Weapons
 
         public TBehaviour prefab;
 
-        [field: SerializeField, ShowAssetPreview]
-        public Sprite ItemIcon { get; set; }
-        
         [field: SerializeField]
-        public string ItemName { get; set; }
-        
-        [field: SerializeField, Tag]
-        public string[] Tags { get; set; }
-        
+        [field: ShowAssetPreview]
+        public Sprite ItemIcon { get; set; }
+
+        [field: SerializeField] public string ItemName { get; set; }
+
+        [field: SerializeField] [field: Tag] public string[] Tags { get; set; }
+
         public int MaxItemLevel => data.Length - 1;
 
         public string GetLevelUpDescription(int newLevel)
-            => data[newLevel].LevelUpDescription;
+        {
+            return data[newLevel].LevelUpDescription;
+        }
 
         public GameObject CreateItem(int level)
         {

@@ -1,4 +1,5 @@
 using System;
+using Global;
 using Interfaces;
 using Player;
 using UnityEngine;
@@ -10,31 +11,41 @@ namespace InventoryItems.InfiniteItems
     public class AddGold : ScriptableObject, IInventoryItemDescriptor
     {
         public int additionGold;
-        
-        [field: SerializeField]
-        public Sprite ItemIcon { get; set; }
+
+        [field: SerializeField] public Sprite ItemIcon { get; set; }
 
         public string ItemName => "Gold";
         public string[] Tags => new[] { "Hidden" };
         public int MaxItemLevel => int.MaxValue;
-        
-        public string GetLevelUpDescription(int newLevel) => $"Add +{additionGold} gold";
 
-        public IDisposable CreateItem(int level) => new AddGoldBehaviour(additionGold);
-        
+        public string GetLevelUpDescription(int newLevel)
+        {
+            return $"Add +{additionGold} gold";
+        }
+
+        public IDisposable CreateItem(int level)
+        {
+            return new AddGoldBehaviour(additionGold);
+        }
+
         public class AddGoldBehaviour : IDisposable
         {
             private readonly int _additionMaxHealth;
 
-            public AddGoldBehaviour(int additionMaxHealth) => _additionMaxHealth = additionMaxHealth;
-        
+            public AddGoldBehaviour(int additionMaxHealth)
+            {
+                _additionMaxHealth = additionMaxHealth;
+            }
+
             [Inject]
             public void Inject(PlayerModel playerModel)
             {
                 playerModel.AddMaxHealth(_additionMaxHealth);
             }
 
-            public void Dispose() { }
+            public void Dispose()
+            {
+            }
         }
     }
 }

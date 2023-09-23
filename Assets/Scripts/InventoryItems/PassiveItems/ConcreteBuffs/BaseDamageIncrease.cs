@@ -7,6 +7,8 @@ namespace InventoryItems.PassiveItems.ConcreteBuffs
     public class BaseDamageIncrease : PassiveItem<PlayerProperty<int>>
     {
         public override IDisposable CreateItem(int level)
-            => new GenericBuff(model => model.BaseDamage.Value = data[level].Bonus);
+        {
+            return new GenericBuff(model => model.BaseDamage.Value = data[level].Bonus);
+        }
     }
 }

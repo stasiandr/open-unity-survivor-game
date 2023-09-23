@@ -8,8 +8,6 @@ namespace Player
 {
     public class PlayerStatsView : MonoBehaviour
     {
-        private const int ExpToNextLevel = 10;
-
         [SerializeField] private Slider experience;
         [SerializeField] private Slider health;
         [SerializeField] private TMP_Text currentHealthText;
@@ -24,8 +22,8 @@ namespace Player
                 .AddTo(this);
 
             playerModel.CurrentHealth
-                .CombineLatest(playerModel.MaxHealth, (current, max) => (current, max))
-                .Subscribe(val => currentHealthText.text = $"Health: {val.current}/{val.max}")
+                .CombineLatest(playerModel.MaxHealth, (current, max) => $"{current}/{max}")
+                .Subscribe(val => currentHealthText.text = $"Health: {val}")
                 .AddTo(this);
 
             playerModel.CurrentExperienceAboveLastLevel

@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
+using Global;
 using Interfaces;
 using UnityEngine;
 using VContainer;
@@ -10,23 +11,26 @@ namespace InventorySystem
     public class InventoryItemFactory
     {
         private readonly IObjectResolver _resolver;
+        private readonly IPlayerRouter _playerRouter;
 
         [Inject]
-        public InventoryItemFactory(IObjectResolver resolver)
+        public InventoryItemFactory(IObjectResolver resolver, IPlayerRouter playerRouter)
         {
+            _playerRouter = playerRouter;
             _resolver = resolver;
         }
 
         public InventoryItemBase Create([NotNull] IInventoryItemDescriptorBase descriptorBase, int level)
         {
             Debug.Assert(descriptorBase != null);
-            
+
             if (descriptorBase is IInventoryItemGameObjectDescriptor goDescriptor)
             {
                 var instance = goDescriptor.CreateItem(level);
                 _resolver.InjectGameObject(instance);
-                instance.transform.SetParent(WeaponContainerSingleton.Instance.transform, false);
-                
+
+                instance.transform.SetParent(_playerRouter.WeaponsContainer, false);
+
                 return new InventoryItemGameObject(goDescriptor, level, instance);
             }
             else if (descriptorBase is IInventoryItemDescriptor descriptor)

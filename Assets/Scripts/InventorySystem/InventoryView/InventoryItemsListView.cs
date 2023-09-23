@@ -14,7 +14,7 @@ namespace InventorySystem.InventoryView
         private void Awake()
         {
             prefab.gameObject.SetActive(false);
-            _viewInstances = new();
+            _viewInstances = new List<InventoryItemView>();
         }
 
         [Inject]
@@ -30,7 +30,7 @@ namespace InventorySystem.InventoryView
                     item.gameObject.SetActive(true);
                 })
                 .AddTo(this);
-            
+
             inventory.InventoryItems
                 .ObserveRemove()
                 .Where(addEvent => !addEvent.Value.Descriptor.ContainsTag("Hidden"))

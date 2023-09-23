@@ -1,6 +1,5 @@
 using System;
-using Interfaces.AbilityInterfaces;
-using Interfaces.PlayerStatsInterfaces;
+using Global.ItemsInterfaces;
 using UnityEngine;
 
 namespace InventoryItems.Weapons.Orb
@@ -11,27 +10,25 @@ namespace InventoryItems.Weapons.Orb
         [Serializable]
         public struct OrbData : ILevelUpDescription, IProjectileSpeed, IAbilityDamage, IProjectilesCount, ICloneable
         {
-            [field: SerializeField]
-            public float ProjectileSpeed { get; set; }
-            
-            [field: SerializeField]
-            public int AbilityDamage { get; set; }
-            
-            [field: SerializeField]
-            public int ProjectilesCount { get; set; }
-            
-            [field: SerializeField] 
-            public string LevelUpDescription { get; private set; }
+            [field: SerializeField] public float ProjectileSpeed { get; set; }
+
+            [field: SerializeField] public int AbilityDamage { get; set; }
+
+            [field: SerializeField] public int ProjectilesCount { get; set; }
+
+            [field: SerializeField] public string LevelUpDescription { get; private set; }
 
 
-            public object Clone() =>
-                new OrbData
+            public object Clone()
+            {
+                return new OrbData
                 {
                     ProjectileSpeed = ProjectileSpeed,
                     AbilityDamage = AbilityDamage,
                     ProjectilesCount = ProjectilesCount,
-                    LevelUpDescription = LevelUpDescription,
+                    LevelUpDescription = LevelUpDescription
                 };
+            }
         }
     }
 }

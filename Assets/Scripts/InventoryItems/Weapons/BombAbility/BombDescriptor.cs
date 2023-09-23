@@ -1,6 +1,5 @@
 using System;
-using Interfaces.AbilityInterfaces;
-using Interfaces.PlayerStatsInterfaces;
+using Global.ItemsInterfaces;
 using UnityEngine;
 
 namespace InventoryItems.Weapons.BombAbility
@@ -9,29 +8,27 @@ namespace InventoryItems.Weapons.BombAbility
     public class BombDescriptor : WeaponDescriptor<BombDescriptor.BombData, BombBehaviour>
     {
         [Serializable]
-        public struct BombData : ILevelUpDescription, ICloneable, IAbilityRadius, IAbilityDamage, IAbilityInterval, IProjectilesCount
+        public struct BombData : ILevelUpDescription, ICloneable, IAbilityRadius, IAbilityDamage, IAbilityInterval,
+            IProjectilesCount
         {
-            [field: SerializeField]
-            public float Interval { get; set; }
-            [field: SerializeField]
-            public int AbilityDamage { get; set; }
-            [field: SerializeField]
-            public float Radius { get; set; }
-            [field: SerializeField]
-            public int ProjectilesCount { get; set; }
-            
-            [field: SerializeField]
-            public string LevelUpDescription { get; set; }
-            
-            public object Clone() =>
-                new BombData
+            [field: SerializeField] public float Interval { get; set; }
+            [field: SerializeField] public int AbilityDamage { get; set; }
+            [field: SerializeField] public float Radius { get; set; }
+            [field: SerializeField] public int ProjectilesCount { get; set; }
+
+            [field: SerializeField] public string LevelUpDescription { get; set; }
+
+            public object Clone()
+            {
+                return new BombData
                 {
                     Interval = Interval,
                     AbilityDamage = AbilityDamage,
                     Radius = Radius,
                     ProjectilesCount = ProjectilesCount,
-                    LevelUpDescription = LevelUpDescription,
+                    LevelUpDescription = LevelUpDescription
                 };
-        } 
+            }
+        }
     }
 }

@@ -1,3 +1,4 @@
+using Global;
 using Interfaces;
 using UniRx;
 using UnityEngine;
@@ -6,29 +7,32 @@ namespace Enemies
 {
     public class EnemyHealth : MonoBehaviour, IDamagable
     {
-        [SerializeField] private int maxHealth;
+        [SerializeField] private int maxHealth = 100;
         [SerializeField] private GameObject spawnOnDeath;
-        
-        public IntReactiveProperty CurrentHealth { get; private set; }
+
+        public IReadOnlyReactiveProperty<int> CurrentHealth => _currentHealth;
+        private IntReactiveProperty _currentHealth;
 
         private void Awake()
         {
-            CurrentHealth = new IntReactiveProperty(maxHealth);
+            _currentHealth = new IntReactiveProperty(maxHealth);
 
-            CurrentHealth.Where(hp => hp <= 0).Subscribe(_ =>
+            _currentHealth.Where(hp => hp <= 0).Subscribe(_ =>
             {
-                if (spawnOnDeath != null) Instantiate(spawnOnDeath, transform.position, Quaternion.identity).SetActive(true);
+                if (spawnOnDeath != null)
+                    Instantiate(spawnOnDeath, transform.position, Quaternion.identity).SetActive(true);
                 Destroy(gameObject);
             }).AddTo(this);
         }
 
         void IDamagable.DealDamage(int damage)
         {
-            CurrentHealth.Value -= damage;
+            _currentHealth.Value -= damage;
+
             MessageBroker.Default.Publish(new EnemyDamageReceived
             {
                 Damage = damage,
-                WorldPosition = transform.position,
+                WorldPosition = transform.position
             });
         }
     }

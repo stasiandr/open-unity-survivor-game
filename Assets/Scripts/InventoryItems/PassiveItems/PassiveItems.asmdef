@@ -2,11 +2,10 @@
     "name": "PassiveItems",
     "rootNamespace": "",
     "references": [
-        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
         "GUID:4aa2ab3207a0549a2aa15b18c2af91ad",
         "GUID:57a4f393ec0684e5da4c8d3daa85ff01",
-        "GUID:447dc1b3df1e84585af020064714fc65",
         "GUID:618d04b527c09458b92f9718fced4054",
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
         "GUID:776d03a35f1b52c4a9aed9f56d7b4229",
         "GUID:560b04d1a97f54a4e82edc0cbbb69285"
     ],

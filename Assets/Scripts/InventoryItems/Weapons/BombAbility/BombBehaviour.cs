@@ -20,7 +20,7 @@ namespace InventoryItems.Weapons.BombAbility
         public void Construct(PlayerModel playerModel)
         {
             SubscribeToPlayer(playerModel);
-                
+
             Observable.Interval(TimeSpan.FromSeconds(RuntimeData.Interval), Scheduler.MainThreadFixedUpdate)
                 .Subscribe(_ => InstantiateProjectile())
                 .AddTo(this);
@@ -28,9 +28,10 @@ namespace InventoryItems.Weapons.BombAbility
 
         private void InstantiateProjectile()
         {
-            for (int i = 0; i < RuntimeData.ProjectilesCount; i++)
+            for (var i = 0; i < RuntimeData.ProjectilesCount; i++)
             {
-                var direction = Quaternion.Euler(0, Random.value * 360, 0) * (Vector3.forward + Vector3.up * 3).normalized;
+                var direction = Quaternion.Euler(0, Random.value * 360, 0) *
+                                (Vector3.forward + Vector3.up * 3).normalized;
                 var pos = transform.parent.position + direction * 2;
 
                 Instantiate(projectile, pos, Quaternion.LookRotation(direction))

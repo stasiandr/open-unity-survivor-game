@@ -9,9 +9,11 @@ namespace Characters
     public class CharacterAnimationController : MonoBehaviour
     {
         private static readonly int Speed = Animator.StringToHash("Speed");
-        
-        [SerializeField, GetComponent] private Animator animator;
-        [SerializeField, GetComponentInParent] private RockCharacterController controller;
+
+        [SerializeField] [GetComponent] private Animator animator;
+
+        [SerializeField] [GetComponentInParent]
+        private RockCharacterController controller;
 
         private void Start()
         {
