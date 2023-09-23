@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MediavalAnimator
+  m_Controller: {fileID: 9100000, guid: 16f8afcee958b46c08ff1e1a83c610f3, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 9061338213343248790, guid: 010e17ce9362e4069a462b52be84bb1d,
+      type: 3}
+    m_OverrideClip: {fileID: 9061338213343248790, guid: 9dde296d217784c9bab355beec6ff303,
+      type: 3}
+  - m_OriginalClip: {fileID: 1395189703230314720, guid: 010e17ce9362e4069a462b52be84bb1d,
+      type: 3}
+    m_OverrideClip: {fileID: -5599002979973759676, guid: 9dde296d217784c9bab355beec6ff303,
+      type: 3}
+  - m_OriginalClip: {fileID: -5599002979973759676, guid: 010e17ce9362e4069a462b52be84bb1d,
+      type: 3}
+    m_OverrideClip: {fileID: 1395189703230314720, guid: 9dde296d217784c9bab355beec6ff303,
+      type: 3}

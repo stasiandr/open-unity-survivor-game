@@ -17,7 +17,7 @@ namespace Enemies
         {
             var targetPosition = target.WorldPosition; 
 
-            Observable.Interval(TimeSpan.FromSeconds(1), Scheduler.MainThreadFixedUpdate)
+            Observable.Interval(TimeSpan.FromSeconds(.5f), Scheduler.MainThreadFixedUpdate)
                 .Select(_ => targetPosition.Value + Quaternion.Euler(0, Random.value * 360, 0) * Vector3.forward * distance)
                 .Subscribe(pos => Instantiate(enemy, pos, Quaternion.identity).SetActive(true))
                 .AddTo(this);
