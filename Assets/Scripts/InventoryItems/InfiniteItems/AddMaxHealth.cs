@@ -1,5 +1,6 @@
 using System;
 using Global;
+using NaughtyAttributes;
 using Player;
 using UnityEngine;
 using VContainer;
@@ -11,15 +12,20 @@ namespace InventoryItems.InfiniteItems
     {
         public int additionMaxHealth;
 
-        [field: SerializeField] public Sprite ItemIcon { get; set; }
+        [field: SerializeField] public Sprite ItemIcon { get; private set; }
 
-        public string ItemName => "Max health increase";
-        public string[] Tags => new[] { "Hidden" };
+        [field: SerializeField] public string ItemName { get; private set; }
+        
+        [field: SerializeField] 
+        [field: Tag]
+        public string[] Tags { get; private set; }
+        [field: SerializeField] public string LevelUpDescriptionFormat { get; private set; } = "Add +{0} max health";
+        
         public int MaxItemLevel => int.MaxValue;
 
         public string GetLevelUpDescription(int newLevel)
         {
-            return $"Add +{additionMaxHealth} max health";
+            return string.Format(LevelUpDescriptionFormat, additionMaxHealth);
         }
 
         public IDisposable CreateItem(int level)

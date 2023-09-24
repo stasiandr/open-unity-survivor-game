@@ -1,5 +1,6 @@
 using System;
 using Global;
+using NaughtyAttributes;
 using Player;
 using UnityEngine;
 using VContainer;
@@ -9,17 +10,22 @@ namespace InventoryItems.InfiniteItems
     [CreateAssetMenu]
     public class HealPlayer : ScriptableObject, IInventoryItemDescriptor
     {
-        public int heal;
+        [field: SerializeField] private int heal;
 
-        [field: SerializeField] public Sprite ItemIcon { get; set; }
+        [field: SerializeField] public Sprite ItemIcon { get; private set; }
 
-        public string ItemName => "Heal";
-        public string[] Tags => new[] { "Hidden" };
+        [field: SerializeField] public string ItemName { get; private set; }
+        
+        [field: SerializeField] 
+        [field: Tag]
+        public string[] Tags { get; private set; }
+        [field: SerializeField] public string LevelUpDescriptionFormat { get; private set; } = "Add +{0} health";
+        
         public int MaxItemLevel => int.MaxValue;
 
         public string GetLevelUpDescription(int newLevel)
         {
-            return $"Add +{heal} health";
+            return string.Format(LevelUpDescriptionFormat, heal);
         }
 
         public IDisposable CreateItem(int level)

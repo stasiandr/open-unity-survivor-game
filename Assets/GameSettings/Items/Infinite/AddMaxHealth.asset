@@ -15,3 +15,7 @@ MonoBehaviour:
   additionMaxHealth: 25
   <ItemIcon>k__BackingField: {fileID: 21300000, guid: a3e8651aab016439da52e8b18cb76a9a,
     type: 3}
+  <ItemName>k__BackingField: Add max health
+  <Tags>k__BackingField:
+  - Hidden
+  <LevelUpDescriptionFormat>k__BackingField: Add +{0} max health
