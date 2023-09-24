@@ -349,7 +349,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5029403, y: 0.0000000074359194, z: -0.000000004326891, w: 0.8643212}
+  m_LocalRotation: {x: 0.5029403, y: -0.0000000074359194, z: 0.000000004326891, w: 0.8643212}
   m_LocalPosition: {x: 0, y: 16.1, z: -9.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2089,6 +2089,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects:
   - {fileID: 1310547501}
+  levelSettings: {fileID: 11400000, guid: 07cc710c056dc4fb7852868cc025ff35, type: 2}
 --- !u!1 &1313106416
 GameObject:
   m_ObjectHideFlags: 0
@@ -3263,6 +3264,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273577526324944645, guid: 3f7108abf12884b22b068ce68701a3f8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0000000074359194
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273577526324944645, guid: 3f7108abf12884b22b068ce68701a3f8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000004326891
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

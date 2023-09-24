@@ -2,7 +2,7 @@
   "dependencies": {
     "com.cysharp.unitask": "2.4.0",
     "com.dbrizov.naughtyattributes": "2.1.4",
-    "com.gilzoide.easy-project-settings": "1.0.2",
+    "com.gilzoide.easy-project-settings": "1.1.0",
     "com.github.superunitybuild.buildactions": "3.0.1",
     "com.github.superunitybuild.buildtool": "6.0.1",
     "com.neuecc.unirx": "7.1.0",
