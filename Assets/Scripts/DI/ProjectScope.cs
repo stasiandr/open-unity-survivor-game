@@ -1,7 +1,5 @@
 using Contracts;
-using Global;
 using InventorySystem;
-using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
@@ -9,9 +7,6 @@ namespace DI
 {
     public class ProjectScope : LifetimeScope
     {
-        
-        [SerializeField] private AllInGameItems allItems;
-
         private PlayerInput _input;
 
         protected override void Configure(IContainerBuilder builder)
@@ -19,8 +14,6 @@ namespace DI
             CreateInput();
 
             builder.RegisterInstance(_input).AsSelf();
-
-            builder.RegisterInstance(allItems).AsSelf();
 
             builder.Register<InventoryItemFactory>(Lifetime.Scoped).AsSelf();
         }

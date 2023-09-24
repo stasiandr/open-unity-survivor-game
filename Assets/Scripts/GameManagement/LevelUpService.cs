@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Contracts;
 using GameManagement.SelectionCanvas;
 using Global;
 using InventorySystem;
@@ -63,10 +64,10 @@ namespace GameManagement
         }
 
 
-        public LevelUpService(AllInGameItems allInGameItems, Inventory inventory, InventoryItemFactory factory)
+        public LevelUpService(LevelSettings levelSettings, Inventory inventory, InventoryItemFactory factory)
         {
             _factory = factory;
-            _allInGameItems = allInGameItems;
+            _allInGameItems = levelSettings.AllItems;
             _inventory = inventory;
         }
     }

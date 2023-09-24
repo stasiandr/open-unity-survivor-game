@@ -1,7 +1,7 @@
+using Contracts;
 using Enemies;
 using GameManagement;
 using GameManagement.SelectionCanvas;
-using Global;
 using InventorySystem;
 using Player;
 using UnityEngine;
