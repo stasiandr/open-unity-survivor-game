@@ -1,3 +1,4 @@
+using Contracts;
 using Global;
 using InventorySystem;
 using UnityEngine;
@@ -8,6 +9,7 @@ namespace DI
 {
     public class ProjectScope : LifetimeScope
     {
+        
         [SerializeField] private AllInGameItems allItems;
 
         private PlayerInput _input;

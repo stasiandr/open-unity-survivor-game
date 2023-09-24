@@ -5,7 +5,7 @@ using UniRx;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace FX
+namespace Enemies
 {
     public class DamageTexts : MonoBehaviour
     {
@@ -18,7 +18,7 @@ namespace FX
 
         private Transform _mainCamera;
 
-        public void Start()
+        private void Start()
         {
             _mainCamera = Camera.main!.transform;
 

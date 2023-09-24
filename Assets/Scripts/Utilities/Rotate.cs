@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace FX
+namespace Utilities
 {
     public class Rotate : MonoBehaviour
     {

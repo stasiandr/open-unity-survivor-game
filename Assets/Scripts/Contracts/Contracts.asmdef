@@ -1,11 +1,12 @@
 {
-    "name": "Global",
+    "name": "Contracts",
     "rootNamespace": "",
     "references": [
         "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
         "GUID:560b04d1a97f54a4e82edc0cbbb69285",
         "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:23eed6c2401dca1419d1ebd180e58c5a"
+        "GUID:23eed6c2401dca1419d1ebd180e58c5a",
+        "GUID:9edf6d04eabfd482385646eaba23fdfc"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace FX
+namespace Utilities
 {
-    public class AlwaysLookUp : MonoBehaviour
+    public class LockGlobalRotation : MonoBehaviour
     {
         [SerializeField] private Vector3 eulers;
 

@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-namespace Global
+namespace Contracts
 {
     public partial class @PlayerInput: IInputActionCollection2, IDisposable
     {

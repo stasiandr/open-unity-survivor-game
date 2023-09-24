@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Contracts.ItemsInterfaces;
 using Global;
 using Global.ItemsInterfaces;
 using UniRx;

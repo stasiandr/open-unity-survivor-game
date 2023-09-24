@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace Global
 {
-    public static class ProjectExtensions
+    public static class ProjectUtilities
     {
         public static Vector3 ToWorld(this Vector2 vec)
         {

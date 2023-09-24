@@ -1,4 +1,5 @@
 using Characters;
+using Contracts;
 using Global;
 using Nrjwolf.Tools.AttachAttributes;
 using UniRx;

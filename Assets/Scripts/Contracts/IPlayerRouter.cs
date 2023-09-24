@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Global
+namespace Contracts
 {
     public interface IPlayerRouter
     {
