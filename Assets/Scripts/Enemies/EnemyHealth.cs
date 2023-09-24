@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class EnemyHealth : MonoBehaviour, IDamagable
+    public class EnemyHealth : MonoBehaviour, IEnemyHealth
     {
+        // TODO: move to config
         [SerializeField] private int maxHealth = 100;
         [SerializeField] private GameObject spawnOnDeath;
 

@@ -12,6 +12,8 @@ namespace Enemies
     public class EnemyBrains : MonoBehaviour
     {
         [SerializeField] [GetComponent] private RockCharacterController controller;
+        
+        // TODO: move to config
         [SerializeField] private int damage = 1;
 
         [Inject]
@@ -21,9 +23,10 @@ namespace Enemies
                 .Subscribe(pos => controller.SetDirection((pos - transform.position).normalized))
                 .AddTo(this);
 
+            
             gameObject.OnCollisionStayAsObservable()
-                .Where(c => c.collider.CompareTag("Player"))
-                .Select(c => c.rigidbody.GetComponent<IDamagable>())
+                .Select(c => c.collider.GetComponentInParent<IPlayerHealth>())
+                .Where(ph => ph != null)
                 .Subscribe(hp => hp.DealDamage(damage))
                 .AddTo(this);
         }

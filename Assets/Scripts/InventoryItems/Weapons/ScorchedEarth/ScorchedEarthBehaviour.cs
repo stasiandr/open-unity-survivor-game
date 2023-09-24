@@ -29,8 +29,8 @@ namespace InventoryItems.Weapons.ScorchedEarth
                 }).Subscribe(range =>
                 {
                     foreach (var damagable in _results[range]
-                                 .Where(col => col.CompareTag("Enemy"))
-                                 .Select(col => col.attachedRigidbody.GetComponent<IDamagable>()))
+                                 .Select(c => c.GetComponentInParent<IEnemyHealth>())
+                                 .Where(ph => ph != null))
                         damagable.DealDamage(RuntimeData.AbilityDamage);
 
                     tempView.Emit(1);

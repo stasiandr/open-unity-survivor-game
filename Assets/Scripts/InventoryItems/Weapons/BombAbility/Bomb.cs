@@ -23,8 +23,8 @@ namespace InventoryItems.Weapons.BombAbility
 
                 // ReSharper disable once Unity.PreferNonAllocApi
                 foreach (var damagable in Physics.OverlapSphere(transform.position, radius)
-                             .Where(col => col.CompareTag("Enemy"))
-                             .Select(col => col.attachedRigidbody.GetComponent<IDamagable>()))
+                             .Select(c => c.GetComponentInParent<IEnemyHealth>())
+                             .Where(ph => ph != null))
                     damagable.DealDamage(damage);
 
                 Instantiate(onExplosion, transform.position, Quaternion.identity).transform.localScale =

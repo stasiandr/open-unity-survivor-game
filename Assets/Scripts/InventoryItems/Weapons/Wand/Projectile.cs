@@ -18,8 +18,8 @@ namespace InventoryItems.Weapons.Wand
             rb.velocity = transform.forward * speed;
 
             gameObject.OnCollisionEnterAsObservable()
-                .Where(col => col.collider.CompareTag("Enemy"))
-                .Select(col => col.rigidbody.GetComponent<IDamagable>())
+                .Select(c => c.collider.GetComponentInParent<IEnemyHealth>())
+                .Where(ph => ph != null)
                 .Subscribe(d =>
                 {
                     d.DealDamage(damage);

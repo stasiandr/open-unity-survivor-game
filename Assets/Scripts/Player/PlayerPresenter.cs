@@ -4,7 +4,7 @@ using VContainer;
 
 namespace Player
 {
-    public class PlayerPresenter : MonoBehaviour, IDamagable
+    public class PlayerPresenter : MonoBehaviour, IPlayerHealth
     {
         private PlayerModel _playerModel;
 

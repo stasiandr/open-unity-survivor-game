@@ -20,8 +20,8 @@ namespace InventoryItems.Weapons.Orb
         private void Start()
         {
             gameObject.OnTriggerEnterAsObservable()
-                .Where(c => c.CompareTag("Enemy"))
-                .Select(c => c.GetComponentInParent<IDamagable>())
+                .Select(c => c.GetComponentInParent<IEnemyHealth>())
+                .Where(ph => ph != null)
                 .Subscribe(hp => hp.DealDamage(damage))
                 .AddTo(this);
 
