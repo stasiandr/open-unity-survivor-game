@@ -22,15 +22,15 @@ namespace InventorySystem
             item.OnRemove();
         }
 
-        public void RemoveByPrototype(IInventoryItemDescriptorBase item)
+        public void Remove(string id)
         {
-            if (TryGetByPrototype(item, out var inventoryItem))
+            if (TryGet(id, out var inventoryItem))
                 Remove(inventoryItem);
         }
 
-        public bool TryGetByPrototype(IInventoryItemDescriptorBase item, out InventoryItemBase inventoryItem)
+        public bool TryGet(string id, out InventoryItemBase inventoryItem)
         {
-            inventoryItem = _inventoryItems.FirstOrDefault(i => i.Descriptor == item);
+            inventoryItem = _inventoryItems.FirstOrDefault(i => i.Descriptor.ID == id);
             return inventoryItem != null;
         }
     }

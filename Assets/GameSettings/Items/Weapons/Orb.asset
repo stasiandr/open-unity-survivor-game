@@ -30,6 +30,7 @@ MonoBehaviour:
     <ProjectilesCount>k__BackingField: 2
     <LevelUpDescription>k__BackingField: +1 orb
   prefab: {fileID: 8300564893526281527, guid: 4dee1a28de3f84f619336b0204bc9133, type: 3}
+  <ID>k__BackingField: Orb
   <ItemIcon>k__BackingField: {fileID: 21300000, guid: db73fd205c52544339791bb87c46a2d4,
     type: 3}
   <ItemName>k__BackingField: Orb

@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Contracts;
 using Global;
 using UnityEngine;
@@ -13,14 +15,17 @@ namespace InventorySystem
         private readonly IObjectResolver _resolver;
         private readonly IPlayerRouter _playerRouter;
 
+        private readonly Dictionary<string, IInventoryItemDescriptorBase> _id2Descriptor;
+ 
         [Inject]
-        public InventoryItemFactory(IObjectResolver resolver, IPlayerRouter playerRouter)
+        public InventoryItemFactory(IObjectResolver resolver, IPlayerRouter playerRouter, LevelSettings levelSettings)
         {
             _playerRouter = playerRouter;
             _resolver = resolver;
+            _id2Descriptor = levelSettings.AllItems.All.ToDictionary(i => i.ID, i => i);
         }
 
-        public InventoryItemBase Create([NotNull] IInventoryItemDescriptorBase descriptorBase, int level)
+        private InventoryItemBase Create([NotNull] IInventoryItemDescriptorBase descriptorBase, int level)
         {
             Debug.Assert(descriptorBase != null);
 
@@ -43,6 +48,14 @@ namespace InventorySystem
             {
                 throw new NotImplementedException();
             }
+        }
+
+        public InventoryItemBase Create(string id, int level)
+        {
+            if (!_id2Descriptor.TryGetValue(id, out var descriptor)) 
+                throw new NotSupportedException();
+
+            return Create(descriptor, level);
         }
     }
 }

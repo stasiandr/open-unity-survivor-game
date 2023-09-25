@@ -10,5 +10,7 @@ namespace Contracts
         [SerializeField] private SerializableInterface<IInventoryItemDescriptorBase> startingItem;
 
         [field: SerializeField] public AllInGameItems AllItems { get; private set; }
+
+        [field: SerializeField] public int ItemsPerSelection { get; private set; } = 3;
     }
 }

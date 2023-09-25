@@ -14,6 +14,8 @@ namespace InventoryItems.Weapons
 
         public TBehaviour prefab;
 
+        [field: SerializeField] public string ID { get; private set; }
+
         [field: SerializeField]
         [field: ShowAssetPreview]
         public Sprite ItemIcon { get; set; }

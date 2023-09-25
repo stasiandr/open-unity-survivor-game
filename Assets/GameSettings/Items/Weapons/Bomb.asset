@@ -34,6 +34,7 @@ MonoBehaviour:
     <ProjectilesCount>k__BackingField: 2
     <LevelUpDescription>k__BackingField: +1 projectile per shot
   prefab: {fileID: -9028893868812437025, guid: 71d90c69e4b9e41879bdf383058a3b88, type: 3}
+  <ID>k__BackingField: bomb
   <ItemIcon>k__BackingField: {fileID: 21300000, guid: 1e9c468445e634e34a536e2a6a73e20b,
     type: 3}
   <ItemName>k__BackingField: Bomb

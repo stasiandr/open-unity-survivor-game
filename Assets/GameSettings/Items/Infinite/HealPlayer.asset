@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: HealPlayer
   m_EditorClassIdentifier: 
   heal: 25
+  <ID>k__BackingField: heal_player
   <ItemIcon>k__BackingField: {fileID: 21300000, guid: 525eaf54a389d4a9eb05f5fa674df620,
     type: 3}
   <ItemName>k__BackingField: Heal

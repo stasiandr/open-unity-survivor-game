@@ -19,6 +19,7 @@ MonoBehaviour:
     <LevelUpDescription>k__BackingField: +5% projectile speed
   - <Bonus>k__BackingField: 20
     <LevelUpDescription>k__BackingField: +10% projectile speed
+  <ID>k__BackingField: projectile_speed
   <ItemIcon>k__BackingField: {fileID: 21300000, guid: e8b557e7783244a4fbaa69043e78ab3f,
     type: 3}
   <ItemName>k__BackingField: Projectile Speed

@@ -19,6 +19,7 @@ MonoBehaviour:
     <LevelUpDescription>k__BackingField: Decreases interval by 15%
   - <Bonus>k__BackingField: 45
     <LevelUpDescription>k__BackingField: Decreases interval by 20%
+  <ID>k__BackingField: interval_decrease
   <ItemIcon>k__BackingField: {fileID: 21300000, guid: c0b554fb832e14acd9a15061c0f95342,
     type: 3}
   <ItemName>k__BackingField: Decrease interval

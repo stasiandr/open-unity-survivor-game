@@ -12,13 +12,12 @@ using VContainer.Unity;
 
 namespace GameManagement
 {
-    // ReSharper disable once ClassNeverInstantiated.Global
     public class GameService : IStartable, IDisposable
     {
         private readonly CompositeDisposable _lifetime = new();
 
         [Inject] private readonly PlayerModel _playerModel;
-        [Inject] private readonly AbilitySelectionCanvas _abilitySelectionCanvas;
+        [Inject] private readonly AbilitySelectionPresenter _abilitySelectionPresenter;
         [Inject] private readonly LevelUpService _levelUpService;
         [Inject] private readonly Inventory _inventory;
         [Inject] private readonly LevelSettings _levelSettings;
@@ -38,17 +37,18 @@ namespace GameManagement
                 .Subscribe(_ => UniTask.Create(async () =>
                 {
                     Time.timeScale = 0;
-                    var playerSelected =
-                        await _abilitySelectionCanvas.SelectAbility(_levelUpService.GenerateAvailableItems(3));
-
-                    playerSelected.createCallback();
-
+                    var availableItems = _levelUpService.GenerateAvailableItems(_levelSettings.ItemsPerSelection);
+                    var playerSelected = await _abilitySelectionPresenter.SelectAbility(availableItems);
+                    
+                    _inventory.Remove(playerSelected.Descriptor.ID);
+                    _inventory.Add(_factory.Create(playerSelected.Descriptor.ID, playerSelected.Level));
+                    
                     Time.timeScale = 1;
                 }).Forget())
                 .AddTo(_lifetime);
             
             
-            _inventory.Add(_factory.Create(_levelSettings.StartingItem, 0));
+            _inventory.Add(_factory.Create(_levelSettings.StartingItem.ID, 0));
         }
     }
 }

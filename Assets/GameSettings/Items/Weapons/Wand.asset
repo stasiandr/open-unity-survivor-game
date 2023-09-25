@@ -39,6 +39,7 @@ MonoBehaviour:
     <ProjectilesCount>k__BackingField: 2
     <LevelUpDescription>k__BackingField: +1 projectile per cast
   prefab: {fileID: 408808887992073920, guid: f23d796c05c764a6ea9f6b68b9b76c80, type: 3}
+  <ID>k__BackingField: wand
   <ItemIcon>k__BackingField: {fileID: 21300000, guid: 37eb5b29e28854814a8ff4b1d6e4b024,
     type: 3}
   <ItemName>k__BackingField: Wand

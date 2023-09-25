@@ -19,6 +19,7 @@ MonoBehaviour:
     <LevelUpDescription>k__BackingField: +5 Base damage
   - <Bonus>k__BackingField: 20
     <LevelUpDescription>k__BackingField: +20 Base damage
+  <ID>k__BackingField: base_damage_incorease
   <ItemIcon>k__BackingField: {fileID: 21300000, guid: f6c9437ce945a480096d0fea02c4c288,
     type: 3}
   <ItemName>k__BackingField: Increase base damage

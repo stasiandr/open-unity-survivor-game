@@ -1,34 +1,39 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Nrjwolf.Tools.AttachAttributes;
+using UniRx;
 using UnityEngine;
 
 namespace GameManagement.SelectionCanvas
 {
     [RequireComponent(typeof(Canvas))]
-    public class AbilitySelectionCanvas : MonoBehaviour
+    public class AbilitySelectionPresenter : MonoBehaviour
     {
         [SerializeField] [GetComponent] private Canvas canvas;
 
-        [SerializeField] private AbilityButtonViewPresenter abilityButton;
+        [SerializeField] private AbilityButtonView abilityButton;
 
 
-        private readonly List<AbilityButtonViewPresenter> _lastViews = new();
+        private readonly List<AbilityButtonView> _lastViews = new();
 
 
         private AbilityButtonModel _playerSelected;
-
-        internal void ClickOnAbility(AbilityButtonModel model)
-        {
-            _playerSelected = model;
-        }
 
         public async UniTask<AbilityButtonModel> SelectAbility(IEnumerable<AbilityButtonModel> models)
         {
             _playerSelected = null;
 
             foreach (var model in models)
-                _lastViews.Add(Instantiate(abilityButton, abilityButton.transform.parent).Construct(this, model));
+            {
+                var view = Instantiate(abilityButton, abilityButton.transform.parent).Construct(model);
+                
+                view.Button.OnClickAsObservable()
+                    .Select(_ => model)
+                    .Subscribe(m => _playerSelected = m)
+                    .AddTo(view);
+
+                _lastViews.Add(view);
+            }
 
             canvas.enabled = true;
 

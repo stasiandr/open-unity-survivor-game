@@ -17,5 +17,7 @@ namespace Global
 
         public IEnumerable<IInventoryItemDescriptorBase> InfiniteBuffs => infiniteBuffs.Select(si => si.Value);
         [SerializeField] private List<SerializableInterface<IInventoryItemDescriptorBase>> infiniteBuffs;
+
+        public IEnumerable<IInventoryItemDescriptorBase> All => Weapons.Concat(Buffs).Concat(InfiniteBuffs);
     }
 }

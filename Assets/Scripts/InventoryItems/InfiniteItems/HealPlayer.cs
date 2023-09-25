@@ -12,6 +12,7 @@ namespace InventoryItems.InfiniteItems
     {
         [field: SerializeField] private int heal;
 
+        [field: SerializeField] public string ID { get; private set; }
         [field: SerializeField] public Sprite ItemIcon { get; private set; }
 
         [field: SerializeField] public string ItemName { get; private set; }

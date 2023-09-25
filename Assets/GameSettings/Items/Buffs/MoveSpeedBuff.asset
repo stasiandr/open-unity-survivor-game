@@ -19,6 +19,7 @@ MonoBehaviour:
     <LevelUpDescription>k__BackingField: +10% move speed
   - <Bonus>k__BackingField: 30
     <LevelUpDescription>k__BackingField: +15% move speed
+  <ID>k__BackingField: move_speed
   <ItemIcon>k__BackingField: {fileID: 21300000, guid: 05500b83fd95d44d1b966fe31bd8d425,
     type: 3}
   <ItemName>k__BackingField: Move Speed

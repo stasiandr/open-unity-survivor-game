@@ -21,7 +21,7 @@ namespace DI
             builder.Register<PlayerModel>(Lifetime.Singleton).AsSelf();
             builder.RegisterComponentInHierarchy<PlayerRouter>().AsImplementedInterfaces();
             builder.Register<PlayerTargetAdapter>(Lifetime.Singleton).AsImplementedInterfaces();
-            builder.RegisterComponentInHierarchy<AbilitySelectionCanvas>().AsSelf();
+            builder.RegisterComponentInHierarchy<AbilitySelectionPresenter>().AsSelf();
 
             builder.Register<Inventory>(Lifetime.Singleton).AsSelf();
             builder.Register<LevelUpService>(Lifetime.Singleton).AsSelf();

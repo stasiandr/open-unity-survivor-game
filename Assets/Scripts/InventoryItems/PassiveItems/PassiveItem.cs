@@ -11,6 +11,8 @@ namespace InventoryItems.PassiveItems
     {
         public TData[] data;
 
+        [field: SerializeField] public string ID { get; private set; }
+
         [field: SerializeField]
         [field: ShowAssetPreview]
         public Sprite ItemIcon { get; set; }

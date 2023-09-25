@@ -1,4 +1,5 @@
 using System;
+using Contracts.ItemsInterfaces;
 using Global.ItemsInterfaces;
 using UnityEngine;
 

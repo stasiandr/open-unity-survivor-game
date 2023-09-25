@@ -6,6 +6,7 @@ namespace Global
 {
     public interface IInventoryItemDescriptorBase
     {
+        string ID { get; }
         Sprite ItemIcon { get; }
         string ItemName { get; }
         string[] Tags { get; }
