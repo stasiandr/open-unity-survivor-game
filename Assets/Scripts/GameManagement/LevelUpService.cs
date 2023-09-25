@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Contracts;
+using Contracts.InventorySystem;
 using GameManagement.SelectionCanvas;
 using Global;
 using InventorySystem;
@@ -11,7 +12,7 @@ namespace GameManagement
 {
     public class LevelUpService
     {
-        [Inject] private readonly AllInGameItems _allInGameItems;
+        [Inject] private readonly LevelSettings _levelSettings;
         [Inject] private readonly Inventory _inventory;
         [Inject] private readonly InventoryItemFactory _factory;
 
@@ -19,7 +20,7 @@ namespace GameManagement
         {
             var result = new List<AbilityButtonModel>();
 
-            foreach (var item in _allInGameItems.Weapons)
+            foreach (var item in _levelSettings.AllItems.Weapons)
             {
                 var newLevel = _inventory.TryGet(item.ID, out var inventoryItem) ? inventoryItem.Level + 1 : 0;
 
@@ -28,7 +29,7 @@ namespace GameManagement
                 result.Add(BuildButtonModel(item, newLevel));
             }
 
-            foreach (var item in _allInGameItems.Buffs)
+            foreach (var item in _levelSettings.AllItems.Buffs)
             {
                 var newLevel = _inventory.TryGet(item.ID, out var inventoryItem) ? inventoryItem.Level + 1 : 0;
 
@@ -40,14 +41,14 @@ namespace GameManagement
 
             while (result.Count < count)
             {
-                var item = _allInGameItems.InfiniteBuffs.GetRandom();
+                var item = _levelSettings.AllItems.InfiniteBuffs.GetRandom();
                 result.Add(BuildButtonModel(item, 0));
             }
 
             return result.OrderBy(x => Random.Range(0, result.Count)).Take(count).ToArray();
         }
 
-        private AbilityButtonModel BuildButtonModel(IInventoryItemDescriptorBase descriptor, int newLevel)
+        private AbilityButtonModel BuildButtonModel(IInventoryItemDescriptor descriptor, int newLevel)
         {
             return new AbilityButtonModel
             {

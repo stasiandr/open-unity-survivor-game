@@ -1,14 +1,13 @@
-using Global;
-using TNRD;
+using Contracts.InventorySystem;
 using UnityEngine;
 
 namespace Contracts
 {
     public class LevelSettings : ScriptableObject
     {
-        public IInventoryItemDescriptorBase StartingItem => startingItem.Value;
-        [SerializeField] private SerializableInterface<IInventoryItemDescriptorBase> startingItem;
-
+        [InventoryItemID]
+        public string startWithItemString;
+        
         [field: SerializeField] public AllInGameItems AllItems { get; private set; }
 
         [field: SerializeField] public int ItemsPerSelection { get; private set; } = 3;

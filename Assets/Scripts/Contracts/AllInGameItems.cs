@@ -1,23 +1,24 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Contracts.InventorySystem;
 using TNRD;
 using UnityEngine;
 
-namespace Global
+namespace Contracts
 {
     [Serializable]
     public class AllInGameItems
     {
-        public IEnumerable<IInventoryItemDescriptorBase> Weapons => weapons.Select(si => si.Value);
-        [SerializeField] private List<SerializableInterface<IInventoryItemDescriptorBase>> weapons;
+        public IEnumerable<IInventoryItemDescriptor> Weapons => weapons.Select(si => si.Value);
+        [SerializeField] private List<SerializableInterface<IInventoryItemDescriptor>> weapons;
 
-        public IEnumerable<IInventoryItemDescriptorBase> Buffs => buffs.Select(si => si.Value);
-        [SerializeField] private List<SerializableInterface<IInventoryItemDescriptorBase>> buffs;
+        public IEnumerable<IInventoryItemDescriptor> Buffs => buffs.Select(si => si.Value);
+        [SerializeField] private List<SerializableInterface<IInventoryItemDescriptor>> buffs;
 
-        public IEnumerable<IInventoryItemDescriptorBase> InfiniteBuffs => infiniteBuffs.Select(si => si.Value);
-        [SerializeField] private List<SerializableInterface<IInventoryItemDescriptorBase>> infiniteBuffs;
+        public IEnumerable<IInventoryItemDescriptor> InfiniteBuffs => infiniteBuffs.Select(si => si.Value);
+        [SerializeField] private List<SerializableInterface<IInventoryItemDescriptor>> infiniteBuffs;
 
-        public IEnumerable<IInventoryItemDescriptorBase> All => Weapons.Concat(Buffs).Concat(InfiniteBuffs);
+        public IEnumerable<IInventoryItemDescriptor> All => Weapons.Concat(Buffs).Concat(InfiniteBuffs);
     }
 }

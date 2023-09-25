@@ -1,10 +1,9 @@
-using System;
 using System.Linq;
 using UnityEngine;
 
-namespace Global
+namespace Contracts.InventorySystem
 {
-    public interface IInventoryItemDescriptorBase
+    public interface IInventoryItemDescriptor
     {
         string ID { get; }
         Sprite ItemIcon { get; }
@@ -23,15 +22,5 @@ namespace Global
         {
             return newLevel <= MaxItemLevel;
         }
-    }
-
-    public interface IInventoryItemGameObjectDescriptor : IInventoryItemDescriptorBase
-    {
-        GameObject CreateItem(int level);
-    }
-
-    public interface IInventoryItemDescriptor : IInventoryItemDescriptorBase
-    {
-        IDisposable CreateItem(int level);
     }
 }

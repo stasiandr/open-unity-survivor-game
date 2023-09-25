@@ -47,8 +47,8 @@ namespace GameManagement
                 }).Forget())
                 .AddTo(_lifetime);
             
-            
-            _inventory.Add(_factory.Create(_levelSettings.StartingItem.ID, 0));
+
+            _inventory.Add(_factory.Create(_levelSettings.startWithItemString, 0));
         }
     }
 }

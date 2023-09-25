@@ -1,3 +1,5 @@
+using Contracts;
+using Contracts.InventorySystem;
 using Global;
 using TMPro;
 using UnityEngine;
@@ -10,9 +12,9 @@ namespace InventorySystem.InventoryView
         [SerializeField] private Image itemImage;
         [SerializeField] private TMP_Text itemName;
 
-        public IInventoryItemDescriptorBase Descriptor { get; private set; }
+        public IInventoryItemDescriptor Descriptor { get; private set; }
 
-        public InventoryItemView Construct(IInventoryItemDescriptorBase descriptor)
+        public InventoryItemView Construct(IInventoryItemDescriptor descriptor)
         {
             Descriptor = descriptor;
 
