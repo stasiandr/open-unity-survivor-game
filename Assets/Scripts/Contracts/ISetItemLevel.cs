@@ -1,4 +1,4 @@
-namespace Global
+namespace Contracts
 {
     public interface ISetItemLevel
     {

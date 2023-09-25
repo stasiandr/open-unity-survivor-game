@@ -70,7 +70,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2511152075114635556
 Transform:
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3016280807432804618}
-  - component: {fileID: 408808887992073920}
+  - component: {fileID: 1444745074264798395}
   m_Layer: 0
   m_Name: Wand
   m_TagString: Untagged
@@ -163,7 +163,7 @@ Transform:
   - {fileID: 2511152075114635556}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &408808887992073920
+--- !u!114 &1444745074264798395
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,10 +172,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8751966012396337480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 724b2fb8d70e4983a90a8d1821889b20, type: 3}
+  m_Script: {fileID: 11500000, guid: 5273b3cba79e4916a611381898f01d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 3506730989062657585}
+  <ItemID>k__BackingField: weapon/wand
+  <Projectile>k__BackingField: {fileID: 3506730989062657585}
 --- !u!1001 &6343540959313544758
 PrefabInstance:
   m_ObjectHideFlags: 0

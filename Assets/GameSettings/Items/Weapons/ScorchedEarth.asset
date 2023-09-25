@@ -34,8 +34,7 @@ MonoBehaviour:
     <Interval>k__BackingField: 0.75
     <Radius>k__BackingField: 4.5
     <LevelUpDescription>k__BackingField: +50% radius
-  prefab: {fileID: 6799030241608631663, guid: 2cbd38918b5c04df8825f3084e82d704, type: 3}
-  <ID>k__BackingField: scorched_earth
+  <ID>k__BackingField: weapon/scorched_earth
   <ItemIcon>k__BackingField: {fileID: 21300000, guid: 73b70498bc53c4d149602f503b91defa,
     type: 3}
   <ItemName>k__BackingField: Scorched Earth

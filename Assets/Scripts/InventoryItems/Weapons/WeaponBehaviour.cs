@@ -1,30 +1,55 @@
 using System;
+using Contracts;
+using Contracts.InventorySystem;
+using Contracts.ItemsInterfaces;
+using InventorySystem;
+using InventorySystem.HierarchyPattern;
 using Player;
 using UniRx;
-using UnityEngine;
+using VContainer;
 
 namespace InventoryItems.Weapons
 {
-    public abstract class WeaponBehaviour<TData> : MonoBehaviour where TData : ICloneable
+    public abstract class WeaponBehaviour<TData> : IInventoryItemBehaviour
+        where TData : ICloneable, ILevelUpDescription
     {
-        private TData _baseData;
+        protected readonly CompositeDisposable Disposable;
 
-        public void PassData(TData data)
+        protected HierarchyFactory HierarchyFactory { get; private set; }
+        protected IPlayerRouter PlayerRouter { get; private set; }
+
+        protected TData RuntimeData { get; private set; }
+
+        private readonly TData _baseData;
+
+        public WeaponBehaviour(IInventoryItemDescriptor descriptor, InitializationData initializationData)
         {
-            _baseData = data;
+            var weaponDescriptor = (WeaponDescriptor<TData>)descriptor;
+            _baseData = weaponDescriptor.data[initializationData.Level];
+            Disposable = new CompositeDisposable();
         }
 
-        protected void SubscribeToPlayer(PlayerModel playerModel)
+        [Inject]
+        public void Inject(PlayerModel playerModel, HierarchyFactory hierarchyFactory, IPlayerRouter playerRouter)
         {
+            PlayerRouter = playerRouter;
+            HierarchyFactory = hierarchyFactory;
             playerModel.PlayerStatsChanged
                 .Subscribe(_ =>
                 {
                     var baseData = _baseData.Clone();
                     playerModel.InjectPlayerStats(ref baseData);
                     RuntimeData = (TData)baseData;
-                }).AddTo(this);
+                }).AddTo(Disposable);
         }
 
-        protected TData RuntimeData { get; private set; }
+        public virtual void OnItemAdd()
+        {
+        }
+
+        public virtual void Dispose()
+        {
+            Disposable?.Dispose();
+        }
     }
 }

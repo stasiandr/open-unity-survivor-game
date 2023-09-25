@@ -1,6 +1,6 @@
 using System;
-using Global;
-using Global.ItemsInterfaces;
+using Contracts.InventorySystem;
+using Contracts.ItemsInterfaces;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -11,7 +11,9 @@ namespace InventoryItems.PassiveItems
     {
         public TData[] data;
 
-        [field: SerializeField] public string ID { get; private set; }
+        [field: SerializeField]
+        [field: InventoryItemID]
+        public string ID { get; private set; }
 
         [field: SerializeField]
         [field: ShowAssetPreview]
@@ -27,7 +29,5 @@ namespace InventoryItems.PassiveItems
         {
             return data[newLevel].LevelUpDescription;
         }
-
-        public abstract IDisposable CreateItem(int level);
     }
 }

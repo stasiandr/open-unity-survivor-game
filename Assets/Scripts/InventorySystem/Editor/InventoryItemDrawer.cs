@@ -1,10 +1,8 @@
-using System;
-using Contracts;
 using Contracts.InventorySystem;
 using UnityEditor;
 using UnityEngine;
 
-namespace InventorySystem
+namespace InventorySystem.Editor
 {
     [CustomPropertyDrawer(typeof(InventoryItemIDAttribute))]
     public class InventoryItemDrawer : PropertyDrawer

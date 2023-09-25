@@ -1,5 +1,5 @@
+using Contracts;
 using DG.Tweening;
-using Global;
 using TMPro;
 using UniRx;
 using UnityEngine;

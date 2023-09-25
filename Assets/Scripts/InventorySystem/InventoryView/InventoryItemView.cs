@@ -1,6 +1,5 @@
 using Contracts;
 using Contracts.InventorySystem;
-using Global;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

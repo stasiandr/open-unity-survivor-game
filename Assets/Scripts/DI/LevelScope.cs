@@ -13,7 +13,7 @@ namespace DI
     public class LevelScope : LifetimeScope
     {
         [SerializeField] private LevelSettings levelSettings;
-        
+
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterInstance(levelSettings).AsSelf();

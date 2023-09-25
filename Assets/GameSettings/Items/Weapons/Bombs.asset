@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26e90a379c094a2cb0b4f04a050bcd36, type: 3}
-  m_Name: Bomb
+  m_Name: Bombs
   m_EditorClassIdentifier: 
   data:
   - <Interval>k__BackingField: 1.5
@@ -33,8 +33,7 @@ MonoBehaviour:
     <Radius>k__BackingField: 2
     <ProjectilesCount>k__BackingField: 2
     <LevelUpDescription>k__BackingField: +1 projectile per shot
-  prefab: {fileID: -9028893868812437025, guid: 71d90c69e4b9e41879bdf383058a3b88, type: 3}
-  <ID>k__BackingField: bomb
+  <ID>k__BackingField: weapon/bombs
   <ItemIcon>k__BackingField: {fileID: 21300000, guid: 1e9c468445e634e34a536e2a6a73e20b,
     type: 3}
   <ItemName>k__BackingField: Bomb

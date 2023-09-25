@@ -1,7 +1,6 @@
 using System;
 using Contracts;
 using Contracts.InventorySystem;
-using Global;
 
 namespace InventorySystem
 {
@@ -10,23 +9,24 @@ namespace InventorySystem
         public IInventoryItemDescriptor Descriptor { get; private set; }
         public int Level { get; private set; }
 
-        public IDisposable Disposable { get; private set; }
+        public IInventoryItemBehaviour InventoryItemBehaviour { get; private set; }
 
-        public InventoryItem(IInventoryItemDescriptor descriptor, int level, IInventoryItemBehaviour disposable)
+        public InventoryItem(IInventoryItemDescriptor descriptor, int level,
+            IInventoryItemBehaviour inventoryItemBehaviour)
         {
             Descriptor = descriptor;
             Level = level;
-            Disposable = disposable;
+            InventoryItemBehaviour = inventoryItemBehaviour;
         }
 
         public void OnAdd()
         {
-            
+            InventoryItemBehaviour.OnItemAdd();
         }
 
         public void OnRemove()
         {
-            Disposable.Dispose();
+            InventoryItemBehaviour.Dispose();
         }
     }
 }

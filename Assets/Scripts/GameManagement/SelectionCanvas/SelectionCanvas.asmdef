@@ -1,20 +1,20 @@
 {
-    "name": "SelectionCanvas",
-    "rootNamespace": "",
-    "references": [
-        "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:f51ebe6a0ceec4240a699833d6309b23",
-        "GUID:4b4794e38edc74eb8986ad993a5ad5c8",
-        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
-        "GUID:4aa2ab3207a0549a2aa15b18c2af91ad"
-    ],
-    "includePlatforms": [],
-    "excludePlatforms": [],
-    "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
-    "autoReferenced": true,
-    "defineConstraints": [],
-    "versionDefines": [],
-    "noEngineReferences": false
+  "name": "SelectionCanvas",
+  "rootNamespace": "",
+  "references": [
+    "GUID:6055be8ebefd69e48b49212b09b47b2f",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:4b4794e38edc74eb8986ad993a5ad5c8",
+    "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+    "GUID:4aa2ab3207a0549a2aa15b18c2af91ad"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
 }

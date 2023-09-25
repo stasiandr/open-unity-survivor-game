@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7724086602109310741}
-  - component: {fileID: -9028893868812437025}
+  - component: {fileID: 3917964850459962482}
   m_Layer: 0
   m_Name: Bombs
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 5059789390899815387}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-9028893868812437025
+--- !u!114 &3917964850459962482
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,10 +42,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 647503814892896724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4741eb5825b645e8892c2117d5c870f8, type: 3}
+  m_Script: {fileID: 11500000, guid: a708f096ad6345b7987ad15427fd4620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 622927917300892677}
+  <ItemID>k__BackingField: weapon/bombs
+  <Bomb>k__BackingField: {fileID: 622927917300892677}
 --- !u!1 &7549322703960534750
 GameObject:
   m_ObjectHideFlags: 0

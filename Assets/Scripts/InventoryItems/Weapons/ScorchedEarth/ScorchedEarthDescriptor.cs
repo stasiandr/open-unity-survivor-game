@@ -1,12 +1,12 @@
 using System;
-using Global.ItemsInterfaces;
+using Contracts.ItemsInterfaces;
 using UnityEngine;
 
 namespace InventoryItems.Weapons.ScorchedEarth
 {
     [CreateAssetMenu]
     public class
-        ScorchedEarthDescriptor : WeaponDescriptor<ScorchedEarthDescriptor.ScorchedEarthData, ScorchedEarthBehaviour>
+        ScorchedEarthDescriptor : WeaponDescriptor<ScorchedEarthDescriptor.ScorchedEarthData>
     {
         [Serializable]
         public struct ScorchedEarthData : ILevelUpDescription, IAbilityDamage, IAbilityInterval, IAbilityRadius,

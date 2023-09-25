@@ -21,7 +21,7 @@ MonoBehaviour:
     <LevelUpDescription>k__BackingField: +0 Projectiles (more in the future)
   - <Bonus>k__BackingField: 2
     <LevelUpDescription>k__BackingField: +1 Projectile
-  <ID>k__BackingField: projectile_count
+  <ID>k__BackingField: buff/projectile_count_increase
   <ItemIcon>k__BackingField: {fileID: 21300000, guid: c39e61838cf5d4e8bb0d12b3a385911b,
     type: 3}
   <ItemName>k__BackingField: More projectiles

@@ -1,4 +1,4 @@
-using Global;
+using Contracts;
 using UnityEngine;
 using VContainer;
 

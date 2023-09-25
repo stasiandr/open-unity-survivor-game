@@ -2,7 +2,6 @@ using System;
 using Contracts;
 using Cysharp.Threading.Tasks;
 using GameManagement.SelectionCanvas;
-using Global;
 using InventorySystem;
 using Player;
 using UniRx;
@@ -39,14 +38,14 @@ namespace GameManagement
                     Time.timeScale = 0;
                     var availableItems = _levelUpService.GenerateAvailableItems(_levelSettings.ItemsPerSelection);
                     var playerSelected = await _abilitySelectionPresenter.SelectAbility(availableItems);
-                    
+
                     _inventory.Remove(playerSelected.Descriptor.ID);
                     _inventory.Add(_factory.Create(playerSelected.Descriptor.ID, playerSelected.Level));
-                    
+
                     Time.timeScale = 1;
                 }).Forget())
                 .AddTo(_lifetime);
-            
+
 
             _inventory.Add(_factory.Create(_levelSettings.startWithItemString, 0));
         }

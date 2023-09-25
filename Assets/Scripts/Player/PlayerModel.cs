@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Contracts.ItemsInterfaces;
-using Global;
-using Global.ItemsInterfaces;
 using UniRx;
+using UnityEngine;
+using Utilities;
 
 namespace Player
 {
@@ -128,6 +128,11 @@ namespace Player
                 pps.ProjectileSpeed += pps.ProjectileSpeed * MoveSpeedPercent.Value / 100;
             if (target is IProjectilesCount ep) ep.ProjectilesCount += ExtraProjectiles.Value;
             if (target is IAbilityInterval ai) ai.Interval -= ai.Interval * IntervalDecrease.Value / 100;
+        }
+
+        public void AddGold(int gold)
+        {
+            Debug.Log($"Thanks for adding {gold}");
         }
     }
 }

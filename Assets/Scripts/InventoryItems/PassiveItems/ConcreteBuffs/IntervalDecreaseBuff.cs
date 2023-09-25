@@ -1,14 +1,27 @@
 using System;
+using Contracts.InventorySystem;
+using InventorySystem;
 using UnityEngine;
+using UnityEngine.Scripting;
 
 namespace InventoryItems.PassiveItems.ConcreteBuffs
 {
     [CreateAssetMenu]
     public class IntervalDecreaseBuff : PassiveItem<PlayerProperty<float>>
     {
-        public override IDisposable CreateItem(int level)
+        [InventoryItemClass("buff/interval_decrease")]
+        public class IntervalDecreaseBehaviour : BuffBase<IntervalDecreaseBuff>
         {
-            return new GenericBuff(model => model.IntervalDecrease.Value = data[level].Bonus);
+            [Preserve]
+            public IntervalDecreaseBehaviour(IInventoryItemDescriptor descriptor, InitializationData data) : base(
+                descriptor, data)
+            {
+            }
+
+            public override void OnItemAdd()
+            {
+                PlayerModel.IntervalDecrease.Value = Descriptor.data[Data.Level].Bonus;
+            }
         }
     }
 }

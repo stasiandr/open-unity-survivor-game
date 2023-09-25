@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
+using Contracts;
 using Cysharp.Threading.Tasks;
-using Global;
 using Nrjwolf.Tools.AttachAttributes;
 using UnityEngine;
 

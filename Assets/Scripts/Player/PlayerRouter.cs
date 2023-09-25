@@ -1,5 +1,4 @@
 using Contracts;
-using Global;
 using UnityEngine;
 
 namespace Player

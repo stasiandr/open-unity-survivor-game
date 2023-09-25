@@ -1,40 +1,42 @@
 using System.Collections.Generic;
-using Nrjwolf.Tools.AttachAttributes;
-using Player;
-using UniRx;
+using Contracts.InventorySystem;
+using InventorySystem;
 using UnityEngine;
-using VContainer;
+using UnityEngine.Scripting;
 
 namespace InventoryItems.Weapons.Orb
 {
+    [InventoryItemClass(ItemID)]
     public class OrbBehaviour : WeaponBehaviour<OrbDescriptor.OrbData>
     {
-        [SerializeField] [GetComponentInChildren]
-        private RotatingSphereWeapon rotatingSphereWeapon;
+        private const string ItemID = "weapon/orb";
 
         private readonly List<RotatingSphereWeapon> _weapons = new();
+        private OrbHierarchy _orbHierarchy;
 
-        private void Awake()
+        [Preserve]
+        public OrbBehaviour(IInventoryItemDescriptor descriptor, InitializationData initializationData) : base(
+            descriptor, initializationData)
         {
-            rotatingSphereWeapon.gameObject.SetActive(false);
         }
 
-        [Inject]
-        public void Construct(PlayerModel playerModel)
+        public override void OnItemAdd()
         {
-            SubscribeToPlayer(playerModel);
+            base.OnItemAdd();
 
-            playerModel.PlayerStatsChanged.Subscribe(_ => CreateOrbs()).AddTo(this);
+            _orbHierarchy = HierarchyFactory.Find<OrbHierarchy>(ItemID);
+
+            CreateOrbs();
         }
 
         private void CreateOrbs()
         {
-            foreach (var weapon in _weapons) Destroy(weapon.gameObject);
+            foreach (var weapon in _weapons) Object.Destroy(weapon.gameObject);
             _weapons.Clear();
 
             for (var i = 0; i < RuntimeData.ProjectilesCount; i++)
             {
-                var weapon = Instantiate(rotatingSphereWeapon, rotatingSphereWeapon.transform.parent);
+                var weapon = Object.Instantiate(_orbHierarchy.RotatingSphereWeapon, PlayerRouter.WeaponsContainer);
 
                 weapon.damage = RuntimeData.AbilityDamage;
                 weapon.angularSpeed = RuntimeData.ProjectileSpeed;
@@ -44,6 +46,14 @@ namespace InventoryItems.Weapons.Orb
 
                 _weapons.Add(weapon);
             }
+        }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+
+            foreach (var weapon in _weapons) Object.Destroy(weapon.gameObject);
+            _weapons.Clear();
         }
     }
 }

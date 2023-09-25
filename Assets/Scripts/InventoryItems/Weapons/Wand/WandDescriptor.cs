@@ -1,12 +1,11 @@
 using System;
 using Contracts.ItemsInterfaces;
-using Global.ItemsInterfaces;
 using UnityEngine;
 
 namespace InventoryItems.Weapons.Wand
 {
     [CreateAssetMenu]
-    public class WandDescriptor : WeaponDescriptor<WandDescriptor.WandData, WandBehaviour>
+    public class WandDescriptor : WeaponDescriptor<WandDescriptor.WandData>
     {
         [Serializable]
         public struct WandData : ILevelUpDescription, IProjectileSpeed, IAbilityDamage, IAbilityInterval,

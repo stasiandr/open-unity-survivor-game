@@ -1,4 +1,4 @@
-namespace Global.ItemsInterfaces
+namespace Contracts.ItemsInterfaces
 {
     public interface IProjectileSpeed
     {

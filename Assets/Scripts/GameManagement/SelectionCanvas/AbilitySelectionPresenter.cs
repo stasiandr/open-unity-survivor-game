@@ -26,7 +26,7 @@ namespace GameManagement.SelectionCanvas
             foreach (var model in models)
             {
                 var view = Instantiate(abilityButton, abilityButton.transform.parent).Construct(model);
-                
+
                 view.Button.OnClickAsObservable()
                     .Select(_ => model)
                     .Subscribe(m => _playerSelected = m)

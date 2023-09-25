@@ -1,9 +1,9 @@
 using Characters;
 using Contracts;
-using Global;
 using Nrjwolf.Tools.AttachAttributes;
 using UniRx;
 using UnityEngine;
+using Utilities;
 using VContainer;
 
 namespace Player

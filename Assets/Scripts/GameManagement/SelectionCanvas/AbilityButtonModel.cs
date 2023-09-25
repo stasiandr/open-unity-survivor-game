@@ -1,7 +1,6 @@
 using System;
 using Contracts;
 using Contracts.InventorySystem;
-using Global;
 using UnityEngine;
 
 namespace GameManagement.SelectionCanvas

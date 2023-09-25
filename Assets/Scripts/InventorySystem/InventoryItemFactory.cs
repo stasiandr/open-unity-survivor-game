@@ -22,7 +22,7 @@ namespace InventorySystem
 
         private static Lazy<List<string>> CreateAllItemsTagsLazy()
         {
-            return new(() => AppDomain
+            return new Lazy<List<string>>(() => AppDomain
                 .CurrentDomain
                 .GetAssemblies()
                 .SelectMany(a => a.GetTypes())
@@ -44,7 +44,7 @@ namespace InventorySystem
             _id2Descriptor = levelSettings.AllItems.All
                 .Where(i => i != null)
                 .ToDictionary(i => i.ID, i => i);
-            
+
             _constructorData = AppDomain
                 .CurrentDomain
                 .GetAssemblies()
@@ -55,14 +55,14 @@ namespace InventorySystem
 
         public InventoryItem Create(string id, int level)
         {
-            if (!_id2Descriptor.TryGetValue(id, out var descriptor)) 
+            if (!_id2Descriptor.TryGetValue(id, out var descriptor))
                 throw new InventoryItemNotFoundException(id);
             if (!_constructorData.TryGetValue(id, out var type))
                 throw new InventoryItemNotFoundException(id);
 
-            var instance = Activator.CreateInstance(type, descriptor, new InitializationData(level: level));
-            
-            if (instance == null) 
+            var instance = Activator.CreateInstance(type, descriptor, new InitializationData(level));
+
+            if (instance == null)
                 throw new InventoryItemInvalidConstructorException(id);
 
             var behaviour = instance as IInventoryItemBehaviour;

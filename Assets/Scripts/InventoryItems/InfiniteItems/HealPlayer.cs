@@ -1,56 +1,46 @@
-using System;
-using Global;
+using Contracts.InventorySystem;
+using InventorySystem;
 using NaughtyAttributes;
-using Player;
 using UnityEngine;
-using VContainer;
+using UnityEngine.Scripting;
 
 namespace InventoryItems.InfiniteItems
 {
     [CreateAssetMenu]
     public class HealPlayer : ScriptableObject, IInventoryItemDescriptor
     {
-        [field: SerializeField] private int heal;
+        [field: SerializeField] public int Heal { get; private set; }
 
-        [field: SerializeField] public string ID { get; private set; }
+        [field: SerializeField]
+        [field: InventoryItemID]
+        public string ID { get; private set; }
+
         [field: SerializeField] public Sprite ItemIcon { get; private set; }
 
         [field: SerializeField] public string ItemName { get; private set; }
-        
-        [field: SerializeField] 
-        [field: Tag]
-        public string[] Tags { get; private set; }
+
+        [field: SerializeField] [field: Tag] public string[] Tags { get; private set; }
         [field: SerializeField] public string LevelUpDescriptionFormat { get; private set; } = "Add +{0} health";
-        
+
         public int MaxItemLevel => int.MaxValue;
 
         public string GetLevelUpDescription(int newLevel)
         {
-            return string.Format(LevelUpDescriptionFormat, heal);
+            return string.Format(LevelUpDescriptionFormat, Heal);
         }
 
-        public IDisposable CreateItem(int level)
+        [InventoryItemClass("pickups/heal_player")]
+        public class HealPlayerBehaviour : InfiniteItemBehaviourBase<HealPlayer>
         {
-            return new HealPlayerBehaviour(heal);
-        }
-
-        public class HealPlayerBehaviour : IDisposable
-        {
-            private readonly int _additionMaxHealth;
-
-            public HealPlayerBehaviour(int additionMaxHealth)
+            [Preserve]
+            public HealPlayerBehaviour(IInventoryItemDescriptor descriptor, InitializationData data) : base(descriptor,
+                data)
             {
-                _additionMaxHealth = additionMaxHealth;
             }
 
-            [Inject]
-            public void Inject(PlayerModel playerModel)
+            public override void OnItemAdd()
             {
-                playerModel.Heal(_additionMaxHealth);
-            }
-
-            public void Dispose()
-            {
+                PlayerModel.Heal(Descriptor.Heal);
             }
         }
     }

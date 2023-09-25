@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6c87c072f94b4a905bc837145f7ae5, type: 3}
   m_Name: LevelSettings
   m_EditorClassIdentifier: 
-  startWithItemString: dummy_item_lol
+  startWithItemString: weapon/wand
   <AllItems>k__BackingField:
     weapons:
     - mode: 0
@@ -29,10 +29,6 @@ MonoBehaviour:
         rid: -2
     - mode: 0
       unityReference: {fileID: 11400000, guid: b38019e0ec591448aae3c471595067d9, type: 2}
-      rawReference:
-        rid: -2
-    - mode: 0
-      unityReference: {fileID: 11400000, guid: da9506105f18d4838925e4fbf232e8d0, type: 2}
       rawReference:
         rid: -2
     buffs:

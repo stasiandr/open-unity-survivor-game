@@ -1,29 +1,29 @@
 using System;
-using Player;
+using Contracts.InventorySystem;
+using InventorySystem;
 using UniRx;
 using UnityEngine;
-using VContainer;
+using UnityEngine.Scripting;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 namespace InventoryItems.Weapons.Wand
 {
+    [InventoryItemClass(ItemID)]
     public class WandBehaviour : WeaponBehaviour<WandDescriptor.WandData>
     {
-        [SerializeField] private Projectile projectile;
+        private const string ItemID = "weapon/wand";
 
-        private void Awake()
-        {
-            projectile.gameObject.SetActive(false);
-        }
+        private WandHierarchy _hierarchyObject;
 
-        [Inject]
-        public void Construct(PlayerModel playerModel)
+        public override void OnItemAdd()
         {
-            SubscribeToPlayer(playerModel);
+            base.OnItemAdd();
+            _hierarchyObject = HierarchyFactory.Find<WandHierarchy>(ItemID);
 
             Observable.Interval(TimeSpan.FromSeconds(RuntimeData.Interval), Scheduler.MainThreadFixedUpdate)
                 .Subscribe(_ => InstantiateProjectile())
-                .AddTo(this);
+                .AddTo(Disposable);
         }
 
         private void InstantiateProjectile()
@@ -33,12 +33,18 @@ namespace InventoryItems.Weapons.Wand
                 var direction = Quaternion.Euler(0, Random.value * 360, 0) * (Vector3.forward + Vector3.up).normalized;
                 var projectileDirection = Vector3.ProjectOnPlane(direction, Vector3.up);
 
-                var pos = transform.parent.position + direction;
+                var pos = PlayerRouter.WeaponsContainer.parent.position + direction;
 
-                Instantiate(projectile, pos, Quaternion.LookRotation(projectileDirection))
+                Object.Instantiate(_hierarchyObject.Projectile, pos, Quaternion.LookRotation(projectileDirection))
                     .Construct(RuntimeData.ProjectileSpeed, RuntimeData.AbilityDamage, 5)
                     .gameObject.SetActive(true);
             }
+        }
+
+        [Preserve]
+        public WandBehaviour(IInventoryItemDescriptor descriptor, InitializationData initializationData) : base(
+            descriptor, initializationData)
+        {
         }
     }
 }

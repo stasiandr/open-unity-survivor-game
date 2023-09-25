@@ -3,9 +3,9 @@ using System.Linq;
 using Contracts;
 using Contracts.InventorySystem;
 using GameManagement.SelectionCanvas;
-using Global;
 using InventorySystem;
 using UnityEngine;
+using Utilities;
 using VContainer;
 
 namespace GameManagement
@@ -53,7 +53,7 @@ namespace GameManagement
             return new AbilityButtonModel
             {
                 Descriptor = descriptor,
-                Level = newLevel,
+                Level = newLevel
             };
         }
     }

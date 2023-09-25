@@ -1,4 +1,4 @@
-using Global;
+using Contracts;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;

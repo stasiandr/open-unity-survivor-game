@@ -1,15 +1,15 @@
 using System;
 using Contracts.ItemsInterfaces;
-using Global.ItemsInterfaces;
 using UnityEngine;
 
 namespace InventoryItems.Weapons.BombAbility
 {
     [CreateAssetMenu]
-    public class BombDescriptor : WeaponDescriptor<BombDescriptor.BombData, BombBehaviour>
+    public class BombsDescriptor : WeaponDescriptor<BombsDescriptor.BombsData>
     {
         [Serializable]
-        public struct BombData : ILevelUpDescription, ICloneable, IAbilityRadius, IAbilityDamage, IAbilityInterval, IProjectilesCount
+        public struct BombsData : ILevelUpDescription, ICloneable, IAbilityRadius, IAbilityDamage, IAbilityInterval,
+            IProjectilesCount
         {
             [field: SerializeField] public float Interval { get; set; }
             [field: SerializeField] public int AbilityDamage { get; set; }
@@ -20,7 +20,7 @@ namespace InventoryItems.Weapons.BombAbility
 
             public object Clone()
             {
-                return new BombData
+                return new BombsData
                 {
                     Interval = Interval,
                     AbilityDamage = AbilityDamage,

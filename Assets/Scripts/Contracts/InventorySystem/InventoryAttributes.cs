@@ -15,5 +15,7 @@ namespace Contracts.InventorySystem
     }
 
     [AttributeUsage(AttributeTargets.Field)]
-    public class InventoryItemIDAttribute : PropertyAttribute { }
+    public class InventoryItemIDAttribute : PropertyAttribute
+    {
+    }
 }

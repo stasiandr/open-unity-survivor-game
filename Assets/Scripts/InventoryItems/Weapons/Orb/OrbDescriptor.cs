@@ -1,12 +1,11 @@
 using System;
 using Contracts.ItemsInterfaces;
-using Global.ItemsInterfaces;
 using UnityEngine;
 
 namespace InventoryItems.Weapons.Orb
 {
     [CreateAssetMenu]
-    public class OrbDescriptor : WeaponDescriptor<OrbDescriptor.OrbData, OrbBehaviour>
+    public class OrbDescriptor : WeaponDescriptor<OrbDescriptor.OrbData>
     {
         [Serializable]
         public struct OrbData : ILevelUpDescription, IProjectileSpeed, IAbilityDamage, IProjectilesCount, ICloneable

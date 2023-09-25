@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
-namespace Global
+namespace Utilities
 {
     public static class ProjectUtilities
     {

@@ -1,5 +1,7 @@
 using Contracts;
 using InventorySystem;
+using InventorySystem.HierarchyPattern;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
@@ -7,6 +9,8 @@ namespace DI
 {
     public class ProjectScope : LifetimeScope
     {
+        [field: SerializeField] private AllHierarchyObjects allHierarchyObjects;
+
         private PlayerInput _input;
 
         protected override void Configure(IContainerBuilder builder)
@@ -16,6 +20,7 @@ namespace DI
             builder.RegisterInstance(_input).AsSelf();
 
             builder.Register<InventoryItemFactory>(Lifetime.Scoped).AsSelf();
+            builder.RegisterInstance(new HierarchyFactory(allHierarchyObjects)).AsSelf();
         }
 
         private void CreateInput()

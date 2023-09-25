@@ -1,5 +1,5 @@
 using System;
-using Global.ItemsInterfaces;
+using Contracts.ItemsInterfaces;
 using UnityEngine;
 
 namespace InventoryItems.PassiveItems

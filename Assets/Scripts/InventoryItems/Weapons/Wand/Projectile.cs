@@ -1,4 +1,4 @@
-using Global;
+using Contracts;
 using Nrjwolf.Tools.AttachAttributes;
 using UniRx;
 using UniRx.Triggers;
